@@ -36,6 +36,16 @@
 <div class="container">
     <div class="well well-sm">
         <strong th:text="${category.name}">Category Title</strong>
+        <br>
+        </br>
+        <ul>
+            <li th:each="cat : ${categories}">
+                <a th:attr="href='/category/'+${cat.id}" href="/category/1" th:text="${cat.name}">Category 1</a>
+            </li>
+            <br>
+            </br>
+            <a href="/">All products</a>
+        </ul>
     </div>
 
     <div id="products" class="row list-group">
