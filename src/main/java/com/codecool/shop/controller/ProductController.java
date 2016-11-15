@@ -31,6 +31,7 @@ public class ProductController {
 
         Map params = new HashMap<>();
         params.put("category", productCategoryDataStore.find(Integer.parseInt(categoryId)));
+        params.put("categories", productCategoryDataStore.getAll());
         params.put("products", productDataStore.getBy(productCategoryDataStore.find(Integer.parseInt(categoryId))));
         return new ModelAndView(params, "product/category");
     }
