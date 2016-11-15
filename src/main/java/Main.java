@@ -52,23 +52,33 @@ public class Main {
 
         Supplier apple = new Supplier("Apple", "Mobile");
         supplierDataStore.add(apple);
+        Supplier samsung = new Supplier("Samsung", "Mobile");
+        supplierDataStore.add(samsung);
+        Supplier razer = new Supplier("Razer", "Computer peripherial devices.");
+        supplierDataStore.add(razer);
 
         //setting up a new product category
         ProductCategory tablet = new ProductCategory("Tablet", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
         productCategoryDataStore.add(tablet);
-        ProductCategory keyboards = new ProductCategory("Keyboard", "Hardware", "A keyboard");
-        productCategoryDataStore.add(keyboards);
+        ProductCategory keyboard = new ProductCategory("Keyboard", "Hardware", "A keyboard");
+        productCategoryDataStore.add(keyboard);
         ProductCategory mobile = new ProductCategory("Mobile", "Hardware", "A mobile, you can call anybody");
         productCategoryDataStore.add(mobile);
+        ProductCategory headphone = new ProductCategory("Headphone", "Hardware", "Headphones for computers.");
+        productCategoryDataStore.add(headphone);
 
 
         //setting up products and printing it
         productDataStore.add(new Product("Amazon Fire", 49.9f, "USD", "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.", tablet, amazon));
         productDataStore.add(new Product("Lenovo IdeaPad Miix 700", 479, "USD", "Keyboard cover is included. Fanless Core m5 processor. Full-size USB ports. Adjustable kickstand.", tablet, lenovo));
         productDataStore.add(new Product("Amazon Fire HD 8", 89, "USD", "Amazon's latest Fire HD 8 tablet is a great value for media consumption.", tablet, amazon));
-        productDataStore.add(new Product("Wonderful keyboard", 20, "USD", "Used for typing.", keyboards, amazon));
+        productDataStore.add(new Product("Samsung Galaxy A5", 170, "USD", "The perfect combination of metal and glass.", mobile, samsung));
         productDataStore.add(new Product("Apple iPhone 7", 799, "USD", "The revolution of mobilephone.", mobile, apple));
-
+        productDataStore.add(new Product("Samsung Galaxy Note 7", 390, "USD", "Explodingly awesome.", mobile, samsung));
+        productDataStore.add(new Product("Wonderful keyboard", 20, "USD", "Used for typing.", keyboard, amazon));
+        productDataStore.add(new Product("Razer Deathstalker", 80, "USD", "Fully programmable slim chiclet keycaps.", keyboard, razer));
+        productDataStore.add(new Product("Apple Keyboard", 50, "USD", "he Apple Keyboard with Numeric Keypad features an elegant, ultrathin anodized aluminum enclosure with low-profile keys that provide a crisp, responsive feel.", keyboard, apple));
+        productDataStore.add(new Product("Razer Kraken 7.1", 80, "USD", "The perfect balance of weight, functionality, and performance, the Razer Kraken is undisputedly the most popular E-sports gaming headset out there.", headphone, razer));
     }
 
 
