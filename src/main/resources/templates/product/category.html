@@ -47,6 +47,16 @@
             <a href="/">All products</a>
         </ul>
     </div>
+    <div class="well well-sm">
+        <strong th:text="${supplier}">Supplier Title</strong>
+        <br>
+        </br>
+        <ul>
+            <li th:each="sup : ${suppliers}">
+                <a th:attr="href='/supplier/'+${sup.id}" href="/supplier/1" th:text="${sup.name}">Supplier 1</a>
+            </li>
+        </ul>
+    </div>
 
     <div id="products" class="row list-group">
 
