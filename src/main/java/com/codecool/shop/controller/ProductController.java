@@ -6,13 +6,9 @@ import com.codecool.shop.dao.SupplierDao;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.dao.implementation.SupplierDaoMem;
-import com.codecool.shop.model.Product;
-import com.codecool.shop.model.ProductCategory;
-import com.codecool.shop.model.Supplier;
-
+import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
-import spark.ModelAndView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,10 +19,29 @@ public class ProductController {
         ProductDao productDataStore = ProductDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
 
+        SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
+
+
         Map params = new HashMap<>();
-        params.put("category", productCategoryDataStore.find(1));
-        params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
+        params.put("category", "All products");
+        params.put("categories", productCategoryDataStore.getAll());
+        params.put("products", productDataStore.getAll());
+
+        params.put("supplier", "All suppliers");
+        params.put("suppliers", )
         return new ModelAndView(params, "product/index");
+    }
+
+    public static ModelAndView renderCategory(Request req, Response res) {
+        String categoryId = req.params(":category_id");
+        ProductDao productDataStore = ProductDaoMem.getInstance();
+        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
+
+        Map params = new HashMap<>();
+        params.put("category", productCategoryDataStore.find(Integer.parseInt(categoryId)));
+        params.put("categories", productCategoryDataStore.getAll());
+        params.put("products", productDataStore.getBy(productCategoryDataStore.find(Integer.parseInt(categoryId))));
+        return new ModelAndView(params, "product/category");
     }
 
 }
