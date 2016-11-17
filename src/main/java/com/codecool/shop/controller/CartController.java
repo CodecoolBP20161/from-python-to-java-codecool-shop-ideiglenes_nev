@@ -14,13 +14,14 @@ import spark.Response;
 public class CartController {
     public static ModelAndView addToCart(Request req, Response res) {
 
+//        String link = req.params();
         int productId = Integer.parseInt(req.params(":product_id"));
         ProductDao productDataStore = ProductDaoMem.getInstance();
         Product newProduct = productDataStore.find(productId);
 
         Cart cart;
 
-        if (req.session().attribute("cart")==null){
+        if (req.session().attribute("cart") == null) {
             cart = new Cart();
             cart.add(newProduct);
             req.session().attribute("cart", cart);
@@ -29,11 +30,9 @@ public class CartController {
             cart.add(newProduct);
         }
 
-        System.out.println(cart.getLineItems());
+        String lastURL = req.session().attribute("lastURL");
 
-        System.out.println(productId);
-
-        res.redirect("/");
+        res.redirect(lastURL);
         return null;
     }
 }

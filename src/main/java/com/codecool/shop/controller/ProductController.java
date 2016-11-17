@@ -31,6 +31,7 @@ public class ProductController {
         params.put("supplier", "All suppliers");
         params.put("cart", AbstractCart.lineItems.size());
 
+        req.session().attribute("lastURL", req.pathInfo());
 
         return new ModelAndView(params, "product/index");
     }
@@ -49,6 +50,8 @@ public class ProductController {
         params.put("supplier", "All suppliers");
         params.put("cart", AbstractCart.lineItems.size());
 
+        req.session().attribute("lastURL", req.pathInfo());
+
         return new ModelAndView(params, "product/category");
     }
     public static ModelAndView renderSupplier(Request req, Response res) {
@@ -64,6 +67,8 @@ public class ProductController {
         params.put("category", "All categories");
         params.put("categories", productCategoryDataStore.getAll());
         params.put("cart", AbstractCart.lineItems.size());
+
+        req.session().attribute("lastURL", req.pathInfo());
 
         return new ModelAndView(params, "product/supplier");
     }
