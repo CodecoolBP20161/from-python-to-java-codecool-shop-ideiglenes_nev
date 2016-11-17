@@ -6,6 +6,7 @@ import com.codecool.shop.dao.SupplierDao;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.dao.implementation.SupplierDaoMem;
+import com.codecool.shop.model.AbstractCart;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -24,12 +25,13 @@ public class ProductController {
         Map params = new HashMap<>();
         params.put("category", "All categories");
         params.put("categories", productCategoryDataStore.getAll());
-
         params.put("supplier", "All suppliers");
         params.put("suppliers", supplierDataStone.getAll());
-
         params.put("products", productDataStore.getAll());
         params.put("supplier", "All suppliers");
+        params.put("cart", AbstractCart.lineItems.size());
+
+        req.session().attribute("lastURL", req.pathInfo());
 
         return new ModelAndView(params, "product/index");
     }
@@ -46,6 +48,10 @@ public class ProductController {
         params.put("products", productDataStore.getBy(productCategoryDataStore.find(Integer.parseInt(categoryId))));
         params.put("suppliers", supplierDataStone.getAll());
         params.put("supplier", "All suppliers");
+        params.put("cart", AbstractCart.lineItems.size());
+
+        req.session().attribute("lastURL", req.pathInfo());
+
         return new ModelAndView(params, "product/category");
     }
     public static ModelAndView renderSupplier(Request req, Response res) {
@@ -60,6 +66,10 @@ public class ProductController {
         params.put("products", productDataStore.getBy(supplierDataStone.find(Integer.parseInt(supplierId))));
         params.put("category", "All categories");
         params.put("categories", productCategoryDataStore.getAll());
+        params.put("cart", AbstractCart.lineItems.size());
+
+        req.session().attribute("lastURL", req.pathInfo());
+
         return new ModelAndView(params, "product/supplier");
     }
 

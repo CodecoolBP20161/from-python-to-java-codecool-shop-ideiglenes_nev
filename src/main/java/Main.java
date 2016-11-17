@@ -1,3 +1,4 @@
+import com.codecool.shop.controller.CartController;
 import com.codecool.shop.controller.ProductController;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
@@ -33,6 +34,7 @@ public class Main {
 
         get("/category/:category_id", ProductController::renderCategory, new ThymeleafTemplateEngine());
         get("/supplier/:supplier_id", ProductController::renderSupplier, new ThymeleafTemplateEngine());
+        get("/addtocart/:product_id", CartController::addToCart, new ThymeleafTemplateEngine());
 
         // Add this line to your project to enable the debug screen
         enableDebugScreen();

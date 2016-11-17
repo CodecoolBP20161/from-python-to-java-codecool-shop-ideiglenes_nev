@@ -31,6 +31,9 @@
 
 <div class="jumbotron text-center">
     <h1>Codecool Shop</h1>
+    <img class="cart_icon" src="http://placehold.it/25x25/000/fff" th:attr="src='/img/cart_icon.png'" alt="" />
+    <strong th:text="${cart}">Cart sum</strong>
+
 </div>
 
 <div class="container">
@@ -71,7 +74,7 @@
                             <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="#">Add to cart</a>
+                            <a class="btn btn-success" th:attr="href='/addtocart/'+${prod.id}">Add to cart</a>
                         </div>
                     </div>
                 </div>
