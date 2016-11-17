@@ -31,36 +31,34 @@
 
 <div class="jumbotron text-center">
     <h1>Codecool Shop</h1>
-    <img class="cart_icon" src="http://placehold.it/25x25/000/fff" th:attr="src='/img/cart_icon.png'" alt="" />
-    <strong th:text="${cart}">Cart sum</strong>
+    <div class="cart-icon">
+        <img class="cartIcon" src="http://placehold.it/25x25/000/fff" th:attr="src='/img/cart_icon.png'" alt="" />
+        <strong th:text="${cart}">Cart sum</strong>
 
-</div>
-
+    </div>
+    </div>
 <div class="container">
     <div class="well well-sm">
-        <strong th:text="${category}">Category Title</strong>
-        <br>
-        </br>
-        <ul>
+    <div class="dropdown category-drop">
+        <button class="btn btn-primary dropdown-toggle" type="button" th:text="${category}" data-toggle="dropdown">Dropdown Example
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu">
             <li th:each="cat : ${categories}">
                 <a th:attr="href='/category/'+${cat.id}" href="/category/1" th:text="${cat.name}">Category 1</a>
             </li>
         </ul>
-    </div>
-
-    <div class="well well-sm">
-        <strong th:text="${supplier}">Supplier Title</strong>
-        <br>
-        </br>
-        <ul>
+        <div class="dropdown supplier-drop">
+        <button class="btn btn-primary dropdown-toggle" type="button" th:text="${supplier}" data-toggle="dropdown">Dropdown Example
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu">
             <li th:each="sup : ${suppliers}">
-                <a th:attr="href='/supplier/'+${sup.id}" href="/supplier/1" th:text="${sup.name}">Supplier 1</a>
+                <a th:attr="href='/supplier/'+${sup.id}" href="/category/1" th:text="${sup.name}">Category 1</a>
             </li>
         </ul>
+        </div>
+        </div>
     </div>
-
     <div id="products" class="row list-group">
-
         <div class="item col-xs-4 col-lg-4" th:each="prod,iterStat : ${products}">
             <div class="thumbnail">
                 <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" th:attr="src='/img/product_' + ${prod.id} + '.jpg'" alt="" />
@@ -79,8 +77,7 @@
             </div>
         </div>
     </div>
-
-</div>
+    </div>
 
 <div th:replace="footer :: copy"></div>
 

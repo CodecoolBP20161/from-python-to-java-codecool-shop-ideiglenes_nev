@@ -60,3 +60,23 @@
 {
     margin: 0 0 11px;
 }
+.category-drop
+{
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.supplier-drop
+{
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+
+}
+/*.cart-icon*/
+/*{*/
+    /*float: right;*/
+/*}*/
