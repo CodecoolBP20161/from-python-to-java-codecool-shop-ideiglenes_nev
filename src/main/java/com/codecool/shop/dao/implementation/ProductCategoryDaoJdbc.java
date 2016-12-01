@@ -13,8 +13,8 @@ import java.util.List;
 public class ProductCategoryDaoJdbc implements ProductCategoryDao{
 
     private static final String DATABASE = "jdbc:postgresql://localhost:5432/codecoolshop";
-    private static final String DB_USER = "postgres";
-    private static final String DB_PASSWORD = "57931111";
+    private static final String DB_USER = "kadartamas";
+    private static final String DB_PASSWORD = "pepper21";
 
     private String query;
     private ProductCategory productCategory;
