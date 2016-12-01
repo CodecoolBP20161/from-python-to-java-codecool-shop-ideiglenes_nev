@@ -21,6 +21,7 @@ CREATE TABLE supplier
 CREATE TABLE product
 (
   id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
   defaultPrice REAL,
   defaultCurrency VARCHAR(255),
   productCategory INTEGER REFERENCES product_category(id),
