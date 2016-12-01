@@ -30,8 +30,7 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao{
         return instance;
     }
 
-    Connection connection = getConnection();
-
+    
     @Override
     public void add(ProductCategory category) {
 
