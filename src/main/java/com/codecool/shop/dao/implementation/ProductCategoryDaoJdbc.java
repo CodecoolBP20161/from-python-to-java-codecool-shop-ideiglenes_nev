@@ -13,8 +13,8 @@ import java.util.List;
 public class ProductCategoryDaoJdbc implements ProductCategoryDao{
 
     private static final String DATABASE = "jdbc:postgresql://localhost:5432/codecoolshop";
-    private static final String DB_USER = "";
-    private static final String DB_PASSWORD = "";
+    private static final String DB_USER = "kadartamas";
+    private static final String DB_PASSWORD = "pepper21";
 
     private String query;
     private ProductCategory productCategory;
@@ -30,8 +30,7 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao{
         return instance;
     }
 
-//    Connection connection = getConnection();
-
+    
     @Override
     public void add(ProductCategory category) {
 
@@ -70,14 +69,12 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao{
 
     @Override
     public void remove(int id) {
-
-        query = "DELETE FROM product_category WHERE id = '" + id + "';";
+        query = "DELETE FROM product_category WHERE id = " + id + ";";
         instance.executeQuery(query);
     }
 
     @Override
     public List<ProductCategory> getAll() {
-
         query = "SELECT * FROM product_category;";
         try (Connection connection = getConnection();
              Statement statement =connection.createStatement();
@@ -98,7 +95,6 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao{
     }
 
     private Connection getConnection() throws SQLException {
-
         return DriverManager.getConnection(
                 DATABASE,
                 DB_USER,
@@ -106,7 +102,6 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao{
     }
 
     private void executeQuery(String query) {
-
         try (Connection connection = getConnection();
              Statement statement =connection.createStatement();
         ){
