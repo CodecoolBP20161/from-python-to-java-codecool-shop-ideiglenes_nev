@@ -31,12 +31,9 @@
 
 <div class="jumbotron text-center">
     <h1>Codecool Shop</h1>
-    <div class="cart-icon">
-        <img class="cartIcon" src="http://placehold.it/25x25/000/fff" th:attr="src='/img/cart_icon.png'" alt="" />
-        <strong th:text="${cart}">Cart sum</strong>
-
-    </div>
-    </div>
+        <img class="cart_icon" src="http://placehold.it/25x25/000/fff" th:attr="src='/img/cart_icon.png'" alt="" />
+        <strong class="cart_nr" th:text="${cart}">Cart sum</strong>
+</div>
 <div class="container">
     <div class="well well-sm">
     <div class="dropdown category-drop">

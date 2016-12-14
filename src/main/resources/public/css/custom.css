@@ -76,7 +76,15 @@
     display: inline-block;
 
 }
-/*.cart-icon*/
-/*{*/
-    /*float: right;*/
-/*}*/
+.cart_icon
+{
+    position: absolute;
+    top:60px;
+    right:100px;
+}
+.cart_nr
+{
+    position: absolute;
+    top:70px;
+    right:90px;
+}
