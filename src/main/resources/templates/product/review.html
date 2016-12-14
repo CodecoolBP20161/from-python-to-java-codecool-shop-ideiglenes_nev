@@ -31,11 +31,11 @@
 
 <div class="jumbotron text-center">
     <h1>Codecool Shop</h1>
-    <img class="cart_icon" src="http://placehold.it/25x25/000/fff" th:attr="src='/img/cart_icon.png'" alt="" />
-    <strong class="cart_nr" th:text="${cart}">Cart sum</strong>
-
 </div>
-
+    <a class="btn btn-default btn-lg glyphicon glyphicon-home" style="position: absolute; top:80px; left:20px" th:attr="href='/'"></a>
+    <a href="/review">
+    <img class="btn btn-default btn-sm" id="cart_icon" src="http://placehold.it/25x25/000/fff" th:attr="src='/img/cart_icon.png'" alt="" /></a>
+    <strong id="cart_nr" th:text="${cart}">Cart sum</strong>
 <div class="container">
     <div class="well well-sm">
         <h2>Shopping Cart</h2>
@@ -46,7 +46,6 @@
                 <th>Quantity</th>
                 <th>Unit Price</th>
                 <th>Amount</th>
-                <th>Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -54,12 +53,7 @@
                 <div class="item col-xs-4 col-lg-4" >
                     <td>"Product name"</td>
                     <td class="td-size">
-                        <button type="submit" class="btn btn-default btn-sm glyphicon glyphicon-plus"></button>
-                        <button type="submit" class="btn btn-default btn-sm glyphicon glyphicon-minus"></button>
                     </td>
-                    <td></td><td></td>
-                    <td><button type="button" class="btn btn-default btn-sm">
-                        <span class="glyphicon glyphicon-trash"></span></button></td>
                 </div>
             </tr>
             </tbody>

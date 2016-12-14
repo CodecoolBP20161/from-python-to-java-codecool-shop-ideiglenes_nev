@@ -76,15 +76,15 @@
     display: inline-block;
 
 }
-.cart_icon
+#cart_icon
 {
     position: absolute;
-    top:60px;
-    right:100px;
+    top:85px;
+    right:37px;
 }
-.cart_nr
+#cart_nr
 {
     position: absolute;
-    top:70px;
-    right:90px;
+    top:75px;
+    right:20px;
 }
