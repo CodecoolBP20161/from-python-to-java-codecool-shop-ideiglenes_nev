@@ -6,7 +6,6 @@ import com.codecool.shop.dao.SupplierDao;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.dao.implementation.SupplierDaoMem;
-import com.codecool.shop.model.AbstractCart;
 import com.codecool.shop.model.Cart;
 import spark.ModelAndView;
 import spark.Request;
@@ -30,7 +29,7 @@ public class ProductController {
         params.put("suppliers", supplierDataStone.getAll());
         params.put("products", productDataStore.getAll());
         params.put("supplier", "All suppliers");
-        params.put("cart", AbstractCart.lineItems.size());
+        params.put("cart", Cart.getLineAll());
 
         req.session().attribute("lastURL", req.pathInfo());
 
@@ -49,7 +48,7 @@ public class ProductController {
         params.put("products", productDataStore.getBy(productCategoryDataStore.find(Integer.parseInt(categoryId))));
         params.put("suppliers", supplierDataStone.getAll());
         params.put("supplier", "All suppliers");
-        params.put("cart", AbstractCart.lineItems.size());
+        params.put("cart", Cart.getLineAll());
 
         req.session().attribute("lastURL", req.pathInfo());
 
@@ -67,7 +66,7 @@ public class ProductController {
         params.put("products", productDataStore.getBy(supplierDataStone.find(Integer.parseInt(supplierId))));
         params.put("category", "All categories");
         params.put("categories", productCategoryDataStore.getAll());
-        params.put("cart", AbstractCart.lineItems.size());
+        params.put("cart", Cart.getLineAll());
 
         req.session().attribute("lastURL", req.pathInfo());
 
@@ -76,8 +75,10 @@ public class ProductController {
 
     public static ModelAndView renderReview(Request req, Response res) {
         Map params = new HashMap<>();
-        params.put("lineItems", Cart.getLineItems());
-        params.put("cart", AbstractCart.lineItems.size());
+        params.put("lineItems", Cart.lineItems());
+        params.put("cart", Cart.getLineAll());
+        params.put("total", Cart.getTotalPrice());
+
 
         req.session().attribute("lastURL", req.pathInfo());
 
