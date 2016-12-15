@@ -45,7 +45,7 @@
                 <th>Product name</th>
                 <th>Quantity</th>
                 <th>Unit Price</th>
-                <th>Amount</th>
+                <th>Subtotal Price</th>
             </tr>
             </thead>
             <tbody>
@@ -53,8 +53,13 @@
                 <div class="item col-xs-4 col-lg-4" >
                     <td>
                         <div th:each="cart : ${lineItems}">
-                            <a th:text="${cart.getName()}">Item 1</a>
+                            <a th:text="${cart.product.getName()}">Item 1</a>
+                            <a th:text="${cart.getQuantity()}">Item 1 quantity</a>
+                            <a th:text="${cart.product.getDefaultPrice()}">Item 1 price</a>
+                            <a th:text="${cart.getSubTotalPrice()}">Item 1 subtotal price</a>
                         </div>
+                        <a th:text="${total}">Total price</a>
+
                     </td>
                     <td class="td-size">
                     </td>
