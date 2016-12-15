@@ -49,16 +49,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr th:each="cart : ${lineItems}">
                 <div class="item col-xs-4 col-lg-4" >
-                    <td>
-                        <div th:each="cart : ${lineItems}">
-                            <a th:text="${cart.getName()}">Item 1</a>
-                        </div>
-                    </td>
-                    <td class="td-size">
-                    </td>
+                    <td th:text="${cart.product.getName()}">Item 1</td>
+                    <td><span class="textmiddle" th:text="${cart.getQuantity()}">Quantity</span></td>
+                    <td th:text="${cart.product.getDefaultPrice()}">Price</td>
+                    <td th:text="${cart.getSubTotalPrice()}">Fullprice</td>
                 </div>
+
             </tr>
             </tbody>
         </table>
