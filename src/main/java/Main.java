@@ -35,7 +35,7 @@ public class Main {
         get("/category/:category_id", ProductController::renderCategory, new ThymeleafTemplateEngine());
         get("/supplier/:supplier_id", ProductController::renderSupplier, new ThymeleafTemplateEngine());
         get("/addtocart/:product_id", CartController::addToCart, new ThymeleafTemplateEngine());
-        get("/review", ProductController::renderReview, new ThymeleafTemplateEngine());
+        get("/shopping_cart", ProductController::renderReview, new ThymeleafTemplateEngine());
 
 
         // Add this line to your project to enable the debug screen

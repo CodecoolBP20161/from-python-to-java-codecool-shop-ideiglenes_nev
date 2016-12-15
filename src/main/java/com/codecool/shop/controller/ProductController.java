@@ -82,7 +82,7 @@ public class ProductController {
 
         req.session().attribute("lastURL", req.pathInfo());
 
-        return new ModelAndView(params, "product/review");
+        return new ModelAndView(params, "product/shopping_cart");
     }
 
 

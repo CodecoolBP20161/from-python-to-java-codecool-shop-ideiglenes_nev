@@ -16,7 +16,6 @@ import java.sql.SQLException;
 public class CartController {
     public static ModelAndView addToCart(Request req, Response res) throws SQLException {
 
-//        String link = req.params();
         int productId = Integer.parseInt(req.params(":product_id"));
         ProductDao productDataStore = ProductDaoMem.getInstance();
         Product newProduct = productDataStore.find(productId);
