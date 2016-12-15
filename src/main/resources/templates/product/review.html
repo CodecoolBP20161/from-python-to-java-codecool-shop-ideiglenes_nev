@@ -51,7 +51,11 @@
             <tbody>
             <tr>
                 <div class="item col-xs-4 col-lg-4" >
-                    <td>"Product name"</td>
+                    <td>
+                        <div th:each="cart : ${lineItems}">
+                            <a th:text="${cart.getName()}">Item 1</a>
+                        </div>
+                    </td>
                     <td class="td-size">
                     </td>
                 </div>
