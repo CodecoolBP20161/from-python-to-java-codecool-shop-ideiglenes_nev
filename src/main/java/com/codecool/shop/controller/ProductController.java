@@ -7,6 +7,7 @@ import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.dao.implementation.SupplierDaoMem;
 import com.codecool.shop.model.AbstractCart;
+import com.codecool.shop.model.Cart;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -74,18 +75,8 @@ public class ProductController {
     }
 
     public static ModelAndView renderReview(Request req, Response res) {
-        ProductDao productDataStore = ProductDaoMem.getInstance();
-        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        SupplierDao supplierDataStone = SupplierDaoMem.getInstance();
-
-
         Map params = new HashMap<>();
-        params.put("category", "All categories");
-        params.put("categories", productCategoryDataStore.getAll());
-        params.put("supplier", "All suppliers");
-        params.put("suppliers", supplierDataStone.getAll());
-        params.put("products", productDataStore.getAll());
-        params.put("supplier", "All suppliers");
+        params.put("lineItems", Cart.getLineItems());
         params.put("cart", AbstractCart.lineItems.size());
 
         req.session().attribute("lastURL", req.pathInfo());
