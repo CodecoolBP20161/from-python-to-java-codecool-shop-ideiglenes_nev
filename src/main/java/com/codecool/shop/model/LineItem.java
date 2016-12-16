@@ -16,7 +16,7 @@ public class LineItem {
 
     public float getSubTotalPrice() {
         subTotalPrice = this.quantity * this.product.getDefaultPrice();
-        return subTotalPrice;
+        return Math.round(subTotalPrice);
     }
 
     public Product getProduct() {
@@ -29,10 +29,6 @@ public class LineItem {
 
     public int getQuantity() {
         return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
     }
 
     public void increaseQuantity(int quantity) {
