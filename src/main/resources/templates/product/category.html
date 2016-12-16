@@ -27,14 +27,15 @@
     <link rel="stylesheet" type="text/css" href="/css/custom.css" />
 </head>
 
-<body>
+<body background="/img/sc2.jpg">
 
 <div class="jumbotron text-center">
     <h1>Codecool Shop</h1>
-    <img class="cart_icon" src="http://placehold.it/25x25/000/fff" th:attr="src='/img/cart_icon.png'" alt="" />
-    <strong th:text="${cart}">Cart sum</strong>
-
 </div>
+    <a class="btn btn-default btn-lg glyphicon glyphicon-home" style="position: absolute; top:80px; left:20px" th:attr="href='/'"></a>
+    <a href="/shopping_cart">
+    <img class="btn btn-default btn-sm" id="cart_icon" src="http://placehold.it/25x25/000/fff" th:attr="src='/img/cart_icon.png'" alt="" /></a>
+    <strong id="cart_nr" th:text="${cart}">Cart sum</strong>
 
 <div class="container">
     <div class="well well-sm">
@@ -83,7 +84,9 @@
 
 </div>
 
-<div th:replace="footer :: copy"></div>
+<footer>
+    <div class="ftr" th:replace="footer :: copy"></div>
+</footer>
 
 </body>
 </html>

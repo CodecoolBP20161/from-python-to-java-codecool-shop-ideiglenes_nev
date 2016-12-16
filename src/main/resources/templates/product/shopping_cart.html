@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Codecool" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Codecool Shop</title>
+
+    <!-- Latest compiled and minified Jquery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+</head>
+
+<body background="/img/sc2.jpg">
+
+<div class="jumbotron text-center">
+    <h1>Codecool Shop</h1>
+</div>
+    <a class="btn btn-default btn-lg glyphicon glyphicon-home" style="position: absolute; top:80px; left:20px" th:attr="href='/'"></a>
+    <a href="/review">
+    <img class="btn btn-default btn-sm" id="cart_icon" src="http://placehold.it/25x25/000/fff" th:attr="src='/img/cart_icon.png'" alt="" /></a>
+    <strong id="cart_nr" th:text="${cart}">Cart sum</strong>
+<div class="container">
+    <div class="well well-sm">
+        <h2>Shopping Cart</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Product name</th>
+                <th>Quantity</th>
+                <th>Unit Price (USD)</th>
+                <th>Amount (USD)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cart : ${lineItems}">
+                <div class="item col-xs-4 col-lg-4" >
+                    <td th:text="${cart.product.getName()}">Item 1</td>
+                    <td><span class="textmiddle" th:text="${cart.getQuantity()}">Quantity</span></td>
+                    <td th:text="${cart.product.getDefaultPrice()}">Price</td>
+                    <td th:text="${cart.getSubTotalPrice()}">Fullprice</td>
+                </div>
+            </tr>
+            </tbody>
+
+        </table>
+        <b><p align="right" class="totalamount" th:text="${'Total: ' + total + ' USD '}">Total</p></b>
+    </div>
+    </div>
+
+</body>
+
+<footer>
+    <div class="ftr">
+        <div class="panel panel-default">
+        <div class="panel-body">
+            &copy; 2016 Codecool Budapest
+        </div>
+        </div>
+    </div>
+
+</footer>
+</html>

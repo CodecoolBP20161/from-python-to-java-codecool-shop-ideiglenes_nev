@@ -35,6 +35,8 @@ public class Main {
         get("/category/:category_id", ProductController::renderCategory, new ThymeleafTemplateEngine());
         get("/supplier/:supplier_id", ProductController::renderSupplier, new ThymeleafTemplateEngine());
         get("/addtocart/:product_id", CartController::addToCart, new ThymeleafTemplateEngine());
+        get("/shopping_cart", ProductController::renderReview, new ThymeleafTemplateEngine());
+
 
         // Add this line to your project to enable the debug screen
         enableDebugScreen();
@@ -79,7 +81,7 @@ public class Main {
         productDataStore.add(new Product("Samsung Galaxy Note 7", 390, "USD", "Explodingly awesome.", mobile, samsung));
         productDataStore.add(new Product("Amazon keyboard", 20, "USD", "Used for typing.", keyboard, amazon));
         productDataStore.add(new Product("Razer Deathstalker", 80, "USD", "Fully programmable slim chiclet keycaps.", keyboard, razer));
-        productDataStore.add(new Product("Apple Keyboard", 50, "USD", "The Apple Keyboard with Numeric Keypad features an elegant, ultrathin anodized aluminum enclosure with low-profile keys that provide a crisp, responsive feel.", keyboard, apple));
+        productDataStore.add(new Product("Apple Keyboard", 50, "USD", "The Apple Keyboard with Numeric Keypad.", keyboard, apple));
         productDataStore.add(new Product("Razer Kraken 7.1", 80, "USD", "The perfect balance of weight, functionality, and performance, the Razer Kraken is undisputedly the most popular E-sports gaming headset out there.", headphone, razer));
     }
 

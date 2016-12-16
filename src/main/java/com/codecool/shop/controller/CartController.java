@@ -8,13 +8,14 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
+import java.sql.SQLException;
+
 /**
  * Created by jakab on 2016.11.17..
  */
 public class CartController {
-    public static ModelAndView addToCart(Request req, Response res) {
+    public static ModelAndView addToCart(Request req, Response res) throws SQLException {
 
-//        String link = req.params();
         int productId = Integer.parseInt(req.params(":product_id"));
         ProductDao productDataStore = ProductDaoMem.getInstance();
         Product newProduct = productDataStore.find(productId);

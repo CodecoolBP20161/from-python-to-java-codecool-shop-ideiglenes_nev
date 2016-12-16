@@ -76,7 +76,36 @@
     display: inline-block;
 
 }
-/*.cart-icon*/
-/*{*/
-    /*float: right;*/
-/*}*/
+#cart_icon
+{
+    position: absolute;
+    top:85px;
+    right:37px;
+}
+#cart_nr
+{
+    position: absolute;
+    top:75px;
+    right:20px;
+}
+div.jumbotron {
+    background-image: url(http://www.mgwalk.org/wp-content/uploads/2016/02/Snowflakes.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+}
+.textmiddle {
+    text-align: center;
+}
+
+.ftr {
+    position: fixed;
+    Width: 100%;
+    bottom: 0;
+}
+.totalamount {
+    align: right;
+    padding: 20px;
+}
