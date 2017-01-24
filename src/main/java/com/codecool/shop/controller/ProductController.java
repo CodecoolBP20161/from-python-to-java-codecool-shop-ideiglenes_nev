@@ -11,12 +11,14 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ProductController {
 
-    public static ModelAndView renderProducts(Request req, Response res) {
+    public static ModelAndView renderProducts(Request req, Response res) throws IOException, URISyntaxException {
         ProductDao productDataStore = ProductDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
         SupplierDao supplierDataStone = SupplierDaoMem.getInstance();
@@ -30,6 +32,7 @@ public class ProductController {
         params.put("products", productDataStore.getAll());
         params.put("supplier", "All suppliers");
         params.put("cart", Cart.getLineAll());
+        params.put("top5", Top5Controller.getTop5(req, res));
 
         req.session().attribute("lastURL", req.pathInfo());
 
