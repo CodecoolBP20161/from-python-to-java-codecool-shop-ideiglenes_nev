@@ -4,6 +4,7 @@ import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.model.Cart;
 import com.codecool.shop.model.Product;
+import com.google.gson.GsonBuilder;
 import org.apache.http.client.utils.URIBuilder;
 import spark.ModelAndView;
 import spark.Request;
