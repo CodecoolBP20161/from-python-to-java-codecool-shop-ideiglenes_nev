@@ -50,6 +50,8 @@ public class CartController {
 
         String response = execute("/api/", "/addproduct");
 
+        GsonBuilder builder = new GsonBuilder();
+
         return response;
     }
 
