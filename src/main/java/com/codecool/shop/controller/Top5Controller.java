@@ -25,6 +25,7 @@ public class Top5Controller {
         return response;
     }
 
+
     private static String execute(String url, String url2) throws IOException, URISyntaxException {
         URI uri = new URIBuilder(SERVICE_URL + url + TESTAPIKEY + url2).build();
         return Request.Get(uri).execute().returnContent().asString();
