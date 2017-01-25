@@ -7,6 +7,7 @@ import com.codecool.shop.model.Product;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.ContentType;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -23,7 +24,7 @@ import java.util.HashMap;
 public class CartController {
 
     private static final String SERVICE_URL = "http://localhost:60001";
-    private static final String APIKEY = "c989ce20ab8daa4876982f701a4eea51";
+    private static final String APIKEY = "6343f3453e774cb3d7f5c5bf56049ece";
     private static final String TESTAPIKEY = "negy";
 
     public static ModelAndView addToCart(Request req, Response res) throws SQLException {
@@ -50,10 +51,8 @@ public class CartController {
     }
 
     public static String postTop5(spark.Request req, Response res) throws IOException, URISyntaxException {
-
+        System.out.println("valami");
         int productId = Integer.parseInt(req.params(":product_id"));
-
-        String response = execute("/api/", "/addproduct");
 
         HashMap addToDB = new HashMap();
         addToDB.put("Product ID", productId);
@@ -62,14 +61,14 @@ public class CartController {
 
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
-
+        String response = execute("/api/", "/addproduct", gson.toJson(addToDB));
         return response;
 
     }
 
-    private static String execute(String url, String url2) throws IOException, URISyntaxException {
+    private static String execute(String url, String url2, String jsonData) throws IOException, URISyntaxException {
         URI uri = new URIBuilder(SERVICE_URL + url + APIKEY + url2).build();
-        return org.apache.http.client.fluent.Request.Get(uri).execute().returnContent().asString();
+        return org.apache.http.client.fluent.Request.Post(uri).bodyString(jsonData, ContentType.APPLICATION_JSON).execute().returnContent().asString();
     }
 
 }

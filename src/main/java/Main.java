@@ -35,6 +35,7 @@ public class Main {
 
         get("/category/:category_id", ProductController::renderCategory, new ThymeleafTemplateEngine());
         get("/supplier/:supplier_id", ProductController::renderSupplier, new ThymeleafTemplateEngine());
+        post("/addtocart/:product_id", CartController::postTop5);
         get("/addtocart/:product_id", CartController::addToCart, new ThymeleafTemplateEngine());
         get("/shopping_cart", ProductController::renderReview, new ThymeleafTemplateEngine());
 
