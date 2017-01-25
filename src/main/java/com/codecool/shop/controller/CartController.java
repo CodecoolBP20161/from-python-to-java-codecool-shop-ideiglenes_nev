@@ -4,6 +4,7 @@ import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.model.Cart;
 import com.codecool.shop.model.Product;
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.http.client.utils.URIBuilder;
 import spark.ModelAndView;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 /**
  * Created by jakab on 2016.11.17..
@@ -49,9 +51,17 @@ public class CartController {
 
     public static String postTop5(spark.Request req, Response res) throws IOException, URISyntaxException {
 
+        int productId = Integer.parseInt(req.params(":product_id"));
+
         String response = execute("/api/", "/addproduct");
 
+        HashMap addToDB = new HashMap();
+        addToDB.put("Product ID", productId);
+        addToDB.put("Quantity", 1);
+        addToDB.put("API Key", APIKEY);
+
         GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
 
         return response;
 

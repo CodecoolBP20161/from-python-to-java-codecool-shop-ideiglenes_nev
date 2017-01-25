@@ -30,5 +30,4 @@ public class Top5Controller {
         URI uri = new URIBuilder(SERVICE_URL + url + TESTAPIKEY + url2).build();
         return Request.Get(uri).execute().returnContent().asString();
     }
-
 }
