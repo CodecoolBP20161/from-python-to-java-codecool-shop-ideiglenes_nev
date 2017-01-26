@@ -33,6 +33,9 @@
     <h1>Codecool Shop</h1>
 </div>
     <a class="btn btn-default btn-lg glyphicon glyphicon-home" style="position: absolute; top:80px; left:20px" th:attr="href='/'"></a>
+
+    <a><img id="avatar" th:src="${avatar}" alt="your personal avatar" height="50" width="50"/></a>
+
     <a href="/shopping_cart">
     <img class="btn btn-default btn-sm" id="cart_icon" src="http://placehold.it/25x25/000/fff" th:attr="src='/img/cart_icon.png'" alt="" /></a>
     <strong id="cart_nr" th:text="${cart}">Cart sum</strong>
@@ -83,6 +86,18 @@
     </div>
 
 </div>
+
+<div id="top5" class="panel panel-default">
+    <h3>
+        <div>Top 5 product:</div>
+    </h3>
+    <h4>
+        <li th:each="prod : ${top5}">
+            <a th:text="${prod.name}">Category 1</a>
+        </li>
+    </h4>
+</div>
+
 
 <footer>
     <div class="ftr" th:replace="footer :: copy"></div>
