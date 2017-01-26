@@ -56,7 +56,7 @@ public class CartController {
         int productId = Integer.parseInt(req.params(":product_id"));
         System.out.println(productId + "   : kapunk ID-t");
         HashMap addToDB = new HashMap();
-        addToDB.put("product_id", productId);
+        addToDB.put("productID", productId);
         addToDB.put("quantity", 1);
         addToDB.put("API Key", APIKEY);
 
