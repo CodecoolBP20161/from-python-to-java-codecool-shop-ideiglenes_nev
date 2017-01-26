@@ -55,13 +55,16 @@ public class CartController {
         int productId = Integer.parseInt(req.params(":product_id"));
 
         HashMap addToDB = new HashMap();
-        addToDB.put("Product ID", productId);
-        addToDB.put("Quantity", 1);
+        addToDB.put("ID", productId);
+        addToDB.put("quantity", 1);
         addToDB.put("API Key", APIKEY);
 
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
         String response = execute("/api/", "/addproduct", gson.toJson(addToDB));
+
+        String lastURL = req.session().attribute("lastURL");
+        res.redirect(lastURL);
         return response;
 
     }
