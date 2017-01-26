@@ -51,9 +51,8 @@ public class CartController {
     }
 
     public static String postTop5(spark.Request req, Response res) throws IOException, URISyntaxException {
-        System.out.println("valami");
         int productId = Integer.parseInt(req.params(":product_id"));
-
+        System.out.println(productId + "122342353464585675675657");
         HashMap addToDB = new HashMap();
         addToDB.put("ID", productId);
         addToDB.put("quantity", 1);
