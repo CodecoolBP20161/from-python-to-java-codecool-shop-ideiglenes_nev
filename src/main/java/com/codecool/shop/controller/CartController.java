@@ -18,15 +18,13 @@ import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import static spark.Spark.get;
-
 /**
  * Created by jakab on 2016.11.17..
  */
 public class CartController {
 
     private static final String SERVICE_URL = "http://localhost:60001";
-    private static final String APIKEY = "6343f3453e774cb3d7f5c5bf56049ece";
+    private static final String APIKEY = "e24ebc9b09a0178c51ce3825c11956f3";
     private static final String TESTAPIKEY = "negy";
 
     public static ModelAndView addToCart(Request req, Response res) throws SQLException, IOException, URISyntaxException {
@@ -54,7 +52,6 @@ public class CartController {
 
     public static String postTop5(spark.Request req, Response res) throws IOException, URISyntaxException {
         int productId = Integer.parseInt(req.params(":product_id"));
-        System.out.println(productId + "   : kapunk ID-t");
         HashMap addToDB = new HashMap();
         addToDB.put("productID", productId);
         addToDB.put("quantity", 1);

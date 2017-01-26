@@ -22,7 +22,7 @@ import java.util.List;
 public class Top5Controller {
 
     private static final String SERVICE_URL = "http://localhost:60001";
-    private static final String APIKEY = "c989ce20ab8daa4876982f701a4eea51";
+    private static final String APIKEY = "e24ebc9b09a0178c51ce3825c11956f3";
     private static final String TESTAPIKEY = "negy";
 
     static private ProductDao productDao = ProductDaoMem.getInstance();
@@ -43,7 +43,7 @@ public class Top5Controller {
 
 
     private static String execute(String url, String url2) throws IOException, URISyntaxException {
-        URI uri = new URIBuilder(SERVICE_URL + url + TESTAPIKEY + url2).build();
+        URI uri = new URIBuilder(SERVICE_URL + url + APIKEY + url2).build();
         return Request.Get(uri).execute().returnContent().asString();
     }
 }

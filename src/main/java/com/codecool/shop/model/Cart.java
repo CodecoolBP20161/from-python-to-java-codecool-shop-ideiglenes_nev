@@ -56,7 +56,7 @@ public class Cart extends AbstractCart{
     }
 
     public static float getTotalPrice() {
-        return Math.round(totalPrice);
+        return totalPrice;
     }
 
 }
