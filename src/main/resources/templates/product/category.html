@@ -87,6 +87,18 @@
 
 </div>
 
+<div id="top5" class="panel panel-default">
+    <h3>
+        <div>Top 5 product:</div>
+    </h3>
+    <h4>
+        <li th:each="prod : ${top5}">
+            <a th:text="${prod.name}">Category 1</a>
+        </li>
+    </h4>
+</div>
+
+
 <footer>
     <div class="ftr" th:replace="footer :: copy"></div>
 </footer>

@@ -1,12 +1,19 @@
 package com.codecool.shop.controller;
 
+import com.codecool.shop.dao.ProductDao;
+import com.codecool.shop.dao.implementation.ProductDaoMem;
+import com.codecool.shop.model.Product;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.utils.URIBuilder;
+import org.json.JSONArray;
 import spark.Response;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -18,11 +25,20 @@ public class Top5Controller {
     private static final String APIKEY = "c989ce20ab8daa4876982f701a4eea51";
     private static final String TESTAPIKEY = "negy";
 
-    public static String getTop5(spark.Request req, Response res) throws IOException, URISyntaxException {
+    static private ProductDao productDao = ProductDaoMem.getInstance();
+
+    public static List<Product> getTop5(spark.Request req, Response res) throws IOException, URISyntaxException, SQLException {
 
         String response = execute("/api/", "/gettop5");
 
-        return response;
+        Product product;
+        List<Product> top5Product = new ArrayList<>();
+        JSONArray array = new JSONArray(response);
+        for (int i = 0; i < array.length(); i++) {
+            product = productDao.find(array.getJSONObject(i).getInt("productID"));
+            top5Product.add(product);
+        }
+        return top5Product;
     }
 
 
