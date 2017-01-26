@@ -16,7 +16,7 @@ public class LineItem {
 
     public float getSubTotalPrice() {
         subTotalPrice = this.quantity * this.product.getDefaultPrice();
-        return Math.round(subTotalPrice);
+        return subTotalPrice;
     }
 
     public Product getProduct() {
